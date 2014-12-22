@@ -1,0 +1,139 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	margin: 0;
+}
+
+a {
+	color: #43c4f7;
+	padding: 0 20px;
+}
+
+h1 {
+	padding-bottom: 30px;
+	padding-top: 10px;
+	font-weight: 400;
+	font-size: 2.5em;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+	&.country {
+		text-align: left;
+		margin: 0;
+	}
+}
+
+img {
+	margin-top: 30px;
+	max-width: 50%;
+	max-height: 500px;
+}
+
+section {
+	width: 800px;
+	margin: auto;
+}
+
+.description {
+	margin-top: 40px;
+}
+
+.country-row {
+	cursor: pointer;
+}
+
+.left {
+	float: left;
+	text-align: right;
+}
+
+.right {
+	float: right;
+	text-align: left;
+}
+
+.info.right {
+	width: 76%;
+}
+
+.neighbor {
+	color: #43c4f7;
+	cursor: pointer;
+	&:after {
+		content: ", ";
+		display: inline;
+		color: #000;
+	}
+	&:last-of-type:after {
+		content: "";
+	}
+}
+
+table {
+	margin: auto;
+	border: 1px solid #d9d9d9;
+	margin-top: 40px;
+}
+
+tr:nth-child(odd) {
+	background: #f1f1f1;
+}
+
+tr.thead {
+	background: darken(#d9d9d9, 7%);
+}
+
+th, td {
+	padding: 10px;
+}
+
+.loading {
+	background-image: url('../../images/loading.png');
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+	margin: auto;
+	margin-top: 45px;
+	margin-bottom: 50px;
+	-webkit-animation: spinner 0.7s linear infinite;
+	animation: spinner 0.7s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes spinner {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+.animate-view {
+	&.ng-enter, &.ng-leave {
+		transition: 0.2s linear all;
+	}
+	&.ng-enter {
+		opacity: 0;
+		transition-delay: 0.2s;
+		&.ng-enter-active {
+			opacity: 1;
+		}
+	}
+	&.ng-leave {
+		opacity: 1;
+		&.ng-leave-active {
+			opacity: 0;
+		}
+	}
+}
+
+.clearfix {
+	*zoom: 1;
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}

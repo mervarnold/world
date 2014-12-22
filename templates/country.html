@@ -1,0 +1,30 @@
+<div ng-if="loading" class="animate-view">
+	<h2 style="margin-top: 110px;">Loading country info</h2>
+	<div class="loading"></div>
+</div>
+
+<div ng-if="!loading" class="animate-view">
+	<h1 class="country">{{countryName}}</h1>
+	<div class="clearfix">
+		<div class="info left">
+			<p>Population of Country:</p>
+			<p>Area:</p>
+			<p>Capital:</p>
+			<p>Population of Capital:</p>
+			<p>{{neighborsList.length}} Neighbors:</p>
+		</div>
+		<div class="info right">
+			<p>{{countryPop | number}}</p>
+			<p>{{areaInSqKm | number}} Km<sup>2</sup></p>
+			<p>{{countryCapital || "Unknown"}}</p>
+			<p>{{capitalPop | number}}</p>
+			<p><span class="neighbor" ng-repeat="neighbor in neighborsList" ng-click="loadNeighbor(neighbor.countryCode)">{{neighbor.countryName}}</span><span ng-if="neighborsList.length == 0">No neighbors</span></p>
+		</div>
+		<div>
+			<div class="clearfix">
+				<img class="left" ng-src="http://www.geonames.org/flags/x/{{countryCode | lowercase}}.gif">
+				<img class="right" ng-src="http://www.geonames.org/img/country/250/{{countryCode | uppercase}}.png">
+			</div>
+		</div>
+	</div>
+</div>
